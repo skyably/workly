@@ -1,184 +1,247 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import classNames from 'classnames';
-import { Row, Col } from 'reactstrap'
-import { rgbToHex } from '@coreui/coreui/dist/js/coreui-utilities'
+import {
+  Badge,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Col,
+  Collapse,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Fade,
+  Form,
+  FormGroup,
+  FormText,
+  FormFeedback,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButtonDropdown,
+  InputGroupText,
+  Label,
+  Row,
+} from 'reactstrap';
 
-class ThemeView extends Component {
+class Forms extends Component {
   constructor(props) {
     super(props);
 
+    this.toggle = this.toggle.bind(this);
+    this.toggleFade = this.toggleFade.bind(this);
     this.state = {
-      bgColor: 'rgb(255, 255, 255)'
-    }
+      collapse: true,
+      fadeIn: true,
+      timeout: 300,
+      dropdownOpen: new Array(6).fill(false),
+    };
   }
 
-  componentDidMount () {
-    const elem = ReactDOM.findDOMNode(this).parentNode.firstChild
-    const color = window.getComputedStyle(elem).getPropertyValue('background-color')
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+  }
+
+  toggleFade() {
+    this.setState((prevState) => { return { fadeIn: !prevState }});
+  }
+
+  toggleDropdown(i) {
+    const newArray = this.state.dropdownOpen.map((element, index) => {
+      return (index === i ? !element : false);
+    });
     this.setState({
-      bgColor: color || this.state.bgColor
-    })
+      dropdownOpen: newArray,
+    });
   }
 
-  render() {
 
-    return (
-      <table className="w-100">
-        <tbody>
-        <tr>
-          <td className="text-muted">HEX:</td>
-          <td className="font-weight-bold">{ rgbToHex(this.state.bgColor) }</td>
-        </tr>
-        <tr>
-          <td className="text-muted">RGB:</td>
-          <td className="font-weight-bold">{ this.state.bgColor }</td>
-        </tr>
-        </tbody>
-      </table>
-    )
-  }
-}
-
-class ThemeColor extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  render() {
-
-    // const { className, children, ...attributes } = this.props
-    const { className, children } = this.props
-
-    const classes = classNames(className, 'theme-color w-75 rounded mb-3')
-
-    return (
-      <Col xl="2" md="4" sm="6" xs="12" className="mb-4">
-        <div className={classes} style={{paddingTop: '75%'}}></div>
-        {children}
-        <ThemeView/>
-      </Col>
-    )
-  }
-}
-
-class Colors extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <div className="card">
-          <div className="card-header">
-            <i className="icon-drop"></i> Theme colors
-          </div>
-          <div className="card-body">
-            <Row>
-              <ThemeColor className="bg-primary">
-                <h6>Brand Primary Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-secondary">
-                <h6>Brand Secondary Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-success">
-                <h6>Brand Success Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-danger">
-                <h6>Brand Danger Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-warning">
-                <h6>Brand Warning Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-info">
-                <h6>Brand Info Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-light">
-                <h6>Brand Light Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-dark">
-                <h6>Brand Dark Color</h6>
-              </ThemeColor>
-            </Row>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-header">
-            <i className="icon-drop"></i> Grays
-          </div>
-          <div className="card-body">
-            <Row className="mb-3">
-              <ThemeColor className="bg-gray-100">
-                <h6>Gray 100 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-200">
-                <h6>Gray 200 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-300">
-                <h6>Gray 300 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-400">
-                <h6>Gray 400 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-500">
-                <h6>Gray 500 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-600">
-                <h6>Gray 600 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-700">
-                <h6>Gray 700 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-800">
-                <h6>Gray 800 Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-gray-900">
-                <h6>Gray 900 Color</h6>
-              </ThemeColor>
-            </Row>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-header">
-            <i className="icon-drop"></i> Additional colors
-          </div>
-          <div className="card-body">
-            <Row>
-              <ThemeColor className="bg-blue">
-                <h6>Blue Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-light-blue">
-                <h6>Light Blue Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-indigo">
-                <h6>Indigo Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-purple">
-                <h6>Purple Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-pink">
-                <h6>Pink Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-red">
-                <h6>Red Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-orange">
-                <h6>Orange Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-yellow">
-                <h6>Yellow Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-green">
-                <h6>Green Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-teal">
-                <h6>Teal Color</h6>
-              </ThemeColor>
-              <ThemeColor className="bg-cyan">
-                <h6>Cyan Color</h6>
-              </ThemeColor>
-            </Row>
-          </div>
-        </div>
+        
+        <Row>
+        <Col xs="12" sm="6">
+            <Card>
+              <CardHeader>
+                <strong>Employee Basic Details</strong>
+              </CardHeader>
+              <CardBody>
+                <FormGroup>
+                  <Label htmlFor="inputIsValid">Employee Name</Label>
+                  <Input type="text" valid id="inputIsValid" />
+                  <FormFeedback valid>Success</FormFeedback>
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="inputIsValid">Email</Label>
+                  <Input type="text" valid id="inputIsValid" />
+                  <FormFeedback valid>Sucess</FormFeedback>
+                </FormGroup>
+                
+              </CardBody>
+            </Card>
+
+         
+          </Col>
+
+          
+          <Col xs="12" sm="3">
+            <Card>
+              <CardHeader>
+                <strong>Contact Details</strong>
+              </CardHeader>
+              <CardBody>
+                <FormGroup>
+                  <Label htmlFor="inputIsValid">Mobile Number</Label>
+                  <Input type="text" invalid id="inputIsInvalid" />
+                  <FormFeedback>Please Enter 10 Digit Phone Number</FormFeedback>
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="inputIsInvalid">Alternate Number</Label>
+                  <Input type="text" invalid id="inputIsInvalid" />
+                  <FormFeedback>Please Enter 10 Digit Or Leave It Blank</FormFeedback>
+                </FormGroup>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="3">
+            <Card>
+              <CardHeader>
+                <strong>Woking Type</strong>
+              </CardHeader>
+              <CardBody>
+               
+                  <Dropdown isOpen={this.state.dropdownOpen[1]} toggle={() => {this.toggleDropdown(1);}} >
+                  <DropdownToggle style={{width:window.innerWidth*16/100,marginTop:30}}>
+                   Role
+                  </DropdownToggle>
+                  <DropdownMenu style={{width:window.innerWidth*16/100}}>
+                    <DropdownItem>Developer</DropdownItem>
+                    <DropdownItem>Tester</DropdownItem>
+                    <DropdownItem>Designer</DropdownItem>
+                    <DropdownItem>Database Developer</DropdownItem>
+                  
+                  </DropdownMenu>
+                 
+                </Dropdown>
+                <Label htmlFor="inputIsInvalid" style={{color:'#f86c6b',fontSize:11}}>PLease Select Atleast 1 One </Label>
+                
+               
+                  <Dropdown isOpen={this.state.dropdownOpen[2]} toggle={() => {this.toggleDropdown(2);}} >
+                  <DropdownToggle style={{width:window.innerWidth*16/100,marginTop:37}}>
+                   Status
+                  </DropdownToggle>
+                  <DropdownMenu style={{width:window.innerWidth*16/100}}>
+                    <DropdownItem>Active</DropdownItem>
+                    <DropdownItem>Inactive</DropdownItem>
+                  </DropdownMenu>
+                 
+                </Dropdown>
+                <Label htmlFor="inputIsInvalid" style={{color:'#f86c6b',fontSize:11}}>PLease Select Atleast 1 One </Label>
+             
+              </CardBody>
+              <Label htmlFor="inputIsInvalid" style={{color:'#f86c6b',fontSize:11}}></Label>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12" sm="12">
+            <Card>
+              <CardHeader>
+                <strong>Under Guidance </strong> 
+              </CardHeader>
+              <CardBody>
+              <Row>
+
+              <Col xs="12" sm="4">
+            <Card>
+              <CardBody>
+              <Dropdown isOpen={this.state.dropdownOpen[3]} toggle={() => {this.toggleDropdown(3);}} >
+                  <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
+                   HR
+                  </DropdownToggle>
+                  <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
+                    <DropdownItem>Retu Malik</DropdownItem>
+                    <DropdownItem>Roshan Kumar</DropdownItem>
+                    <DropdownItem>Vaibhav Singh</DropdownItem>  
+                  </DropdownMenu>
+                 
+                </Dropdown>
+                <Label htmlFor="inputIsInvalid" style={{color:'#f86c6b',fontSize:11}}>PLease Select Atleast 1 One </Label>
+              </CardBody>
+              </Card>
+            </Col>
+              <Col xs="12" sm="4">
+            <Card>
+            <CardBody>
+                <Dropdown isOpen={this.state.dropdownOpen[4]} toggle={() => {this.toggleDropdown(4);}} >
+                  <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
+                   Manager
+                  </DropdownToggle>
+                  <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
+                    <DropdownItem>Vijay Singh</DropdownItem>
+                    <DropdownItem>Harsh Yadav</DropdownItem>
+                    <DropdownItem>Himanshu Singh</DropdownItem>  
+                  </DropdownMenu>
+                 
+                </Dropdown>
+                <Label htmlFor="inputIsInvalid" style={{color:'#f86c6b',fontSize:11}}>PLease Select Atleast 1 One </Label>
+                
+              </CardBody>
+              </Card>
+            </Col>
+             <Col xs="12" sm="4">
+            <Card>
+            <CardBody>
+                <Dropdown isOpen={this.state.dropdownOpen[5]} toggle={() => {this.toggleDropdown(5);}} >
+                  <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
+                   Team Leader
+                  </DropdownToggle>
+                  <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
+                    <DropdownItem>Ankita Singh</DropdownItem>
+                    <DropdownItem>Aman Yadav</DropdownItem>
+                    <DropdownItem>Utkarsh Singh</DropdownItem>  
+                  </DropdownMenu>
+                 
+                </Dropdown>
+                <Label htmlFor="inputIsInvalid" style={{color:'#f86c6b',fontSize:11}}>PLease Select Atleast 1 One </Label>
+                </CardBody>
+              </Card>
+            </Col>
+          
+          
+          </Row>
+             
+          <Row style={{justifyContent: 'flex-end'}}>
+
+<Col xs="12" sm="12" >
+
+
+              <Col col="2" sm="2" md="2" xl className="mb-3 mb-xl-0" >
+                <Button  block outline color="success">Update</Button>
+              </Col>
+  
+</Col>
+
+
+</Row>
+
+              </CardBody>
+            </Card>
+          </Col>
+
+          <Col xs="12" sm="6">
+
+         
+          </Col>
+          
+        </Row>
+
       </div>
     );
   }
 }
 
-export default Colors;
+export default Forms;
