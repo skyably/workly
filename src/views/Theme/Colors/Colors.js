@@ -87,26 +87,8 @@ class Forms extends Component {
           </Col>
 
           
-          <Col xs="12" sm="3">
-            <Card>
-              <CardHeader>
-                <strong>Contact Details</strong>
-              </CardHeader>
-              <CardBody>
-                <FormGroup>
-                  <Label htmlFor="inputIsValid">Mobile Number</Label>
-                  <Input type="text" invalid id="inputIsInvalid" />
-                  <FormFeedback>Please Enter 10 Digit Phone Number</FormFeedback>
-                </FormGroup>
-                <FormGroup>
-                  <Label htmlFor="inputIsInvalid">Alternate Number</Label>
-                  <Input type="text" invalid id="inputIsInvalid" />
-                  <FormFeedback>Please Enter 10 Digit Or Leave It Blank</FormFeedback>
-                </FormGroup>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xs="12" sm="3">
+       
+          <Col xs="12" sm="6">
             <Card>
               <CardHeader>
                 <strong>Woking Type</strong>
@@ -114,10 +96,10 @@ class Forms extends Component {
               <CardBody>
                
                   <Dropdown isOpen={this.state.dropdownOpen[1]} toggle={() => {this.toggleDropdown(1);}} >
-                  <DropdownToggle style={{width:window.innerWidth*16/100,marginTop:30}}>
+                  <DropdownToggle style={{width:window.innerWidth*37.5/100,marginTop:30}}>
                    Role
                   </DropdownToggle>
-                  <DropdownMenu style={{width:window.innerWidth*16/100}}>
+                  <DropdownMenu style={{width:window.innerWidth*37.5/100}}>
                     <DropdownItem>Developer</DropdownItem>
                     <DropdownItem>Tester</DropdownItem>
                     <DropdownItem>Designer</DropdownItem>
@@ -130,10 +112,10 @@ class Forms extends Component {
                 
                
                   <Dropdown isOpen={this.state.dropdownOpen[2]} toggle={() => {this.toggleDropdown(2);}} >
-                  <DropdownToggle style={{width:window.innerWidth*16/100,marginTop:37}}>
+                  <DropdownToggle style={{width:window.innerWidth*37.5/100,marginTop:37}}>
                    Status
                   </DropdownToggle>
-                  <DropdownMenu style={{width:window.innerWidth*16/100}}>
+                  <DropdownMenu style={{width:window.innerWidth*37.5/100}}>
                     <DropdownItem>Active</DropdownItem>
                     <DropdownItem>Inactive</DropdownItem>
                   </DropdownMenu>
@@ -197,7 +179,7 @@ class Forms extends Component {
             <CardBody>
                 <Dropdown isOpen={this.state.dropdownOpen[5]} toggle={() => {this.toggleDropdown(5);}} >
                   <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
-                   Team Leader
+                   Dekhe aata hai ki nhi
                   </DropdownToggle>
                   <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
                     <DropdownItem>Ankita Singh</DropdownItem>
@@ -216,7 +198,7 @@ class Forms extends Component {
              
           <Row style={{justifyContent: 'flex-end'}}>
 
-<Col xs="12" sm="12" >
+<Col xs="12" sm="3" >
 
 
               <Col col="2" sm="2" md="2" xl className="mb-3 mb-xl-0" >
