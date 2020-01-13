@@ -160,7 +160,7 @@ class Forms extends Component {
             <CardBody>
                 <Dropdown isOpen={this.state.dropdownOpen[4]} toggle={() => {this.toggleDropdown(4);}} >
                   <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
-                   Manager
+                   Manager koko
                   </DropdownToggle>
                   <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
                     <DropdownItem>Vijay Singh</DropdownItem>
