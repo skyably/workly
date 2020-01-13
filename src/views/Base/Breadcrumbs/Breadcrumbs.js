@@ -18,7 +18,7 @@ class Breadcrumbs extends Component {
               </CardHeader>
               <CardBody>
                 <Breadcrumb>
-                  <BreadcrumbItem active>HoMEE</BreadcrumbItem>
+                  <BreadcrumbItem active>HoMEEE</BreadcrumbItem>
                 </Breadcrumb>
                 <Breadcrumb>
                   {/*eslint-disable-next-line*/}
