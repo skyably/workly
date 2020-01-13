@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import {
-  Badge,
+
   Button,
   Card,
   CardBody,
-  CardFooter,
+  
   CardHeader,
   Col,
-  Collapse,
+  
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-  Fade,
-  Form,
+  
   FormGroup,
-  FormText,
+  
   FormFeedback,
   Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButtonDropdown,
-  InputGroupText,
+  
   Label,
   Row,
 } from 'reactstrap';
@@ -93,13 +89,13 @@ class Forms extends Component {
               <CardHeader>
                 <strong>Woking Type</strong>
               </CardHeader>
-              <CardBody>
+              <CardBody style={{textAlign:'center'}}>
                
                   <Dropdown isOpen={this.state.dropdownOpen[1]} toggle={() => {this.toggleDropdown(1);}} >
-                  <DropdownToggle style={{width:window.innerWidth*37.5/100,marginTop:30}}>
+                  <DropdownToggle  style={{width:window.innerWidth*17/100,marginTop:37}}>
                    Role
                   </DropdownToggle>
-                  <DropdownMenu style={{width:window.innerWidth*37.5/100}}>
+                  <DropdownMenu style={{width:window.innerWidth*17/100}}>
                     <DropdownItem>Developer</DropdownItem>
                     <DropdownItem>Tester</DropdownItem>
                     <DropdownItem>Designer</DropdownItem>
@@ -112,10 +108,10 @@ class Forms extends Component {
                 
                
                   <Dropdown isOpen={this.state.dropdownOpen[2]} toggle={() => {this.toggleDropdown(2);}} >
-                  <DropdownToggle style={{width:window.innerWidth*37.5/100,marginTop:37}}>
+                  <DropdownToggle style={{width:window.innerWidth*17/100,marginTop:37}}>
                    Status
                   </DropdownToggle>
-                  <DropdownMenu style={{width:window.innerWidth*37.5/100}}>
+                  <DropdownMenu style={{width:window.innerWidth*17/100}}>
                     <DropdownItem>Active</DropdownItem>
                     <DropdownItem>Inactive</DropdownItem>
                   </DropdownMenu>
@@ -139,12 +135,12 @@ class Forms extends Component {
 
               <Col xs="12" sm="4">
             <Card>
-              <CardBody>
+              <CardBody style={{textAlign:'center'}}>
               <Dropdown isOpen={this.state.dropdownOpen[3]} toggle={() => {this.toggleDropdown(3);}} >
-                  <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
+                  <DropdownToggle style={{marginTop:30,width:window.innerWidth*15/100}}>
                    HR
                   </DropdownToggle>
-                  <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
+                  <DropdownMenu  style={{width:window.innerWidth*15/100}}>
                     <DropdownItem>Retu Malik</DropdownItem>
                     <DropdownItem>Roshan Kumar</DropdownItem>
                     <DropdownItem>Vaibhav Singh</DropdownItem>  
@@ -157,12 +153,12 @@ class Forms extends Component {
             </Col>
               <Col xs="12" sm="4">
             <Card>
-            <CardBody>
+            <CardBody style={{textAlign:'center'}}>
                 <Dropdown isOpen={this.state.dropdownOpen[4]} toggle={() => {this.toggleDropdown(4);}} >
-                  <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
+                  <DropdownToggle style={{width:window.innerWidth*15/100,marginTop:30}}>
                    Manager koko
                   </DropdownToggle>
-                  <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
+                  <DropdownMenu style={{width:window.innerWidth*15/100}}>
                     <DropdownItem>Vijay Singh</DropdownItem>
                     <DropdownItem>Harsh Yadav</DropdownItem>
                     <DropdownItem>Himanshu Singh</DropdownItem>  
@@ -176,12 +172,12 @@ class Forms extends Component {
             </Col>
              <Col xs="12" sm="4">
             <Card>
-            <CardBody>
+            <CardBody style={{textAlign:'center'}}>
                 <Dropdown isOpen={this.state.dropdownOpen[5]} toggle={() => {this.toggleDropdown(5);}} >
-                  <DropdownToggle style={{width:window.innerWidth*22.5/100,marginTop:30}}>
+                  <DropdownToggle style={{width:window.innerWidth*15/100,marginTop:30}}>
               Check jdsklk
                   </DropdownToggle>
-                  <DropdownMenu style={{width:window.innerWidth*22.5/100}}>
+                  <DropdownMenu style={{width:window.innerWidth*15/100}}>
                     <DropdownItem>Ankita Singh</DropdownItem>
                     <DropdownItem>Aman Yadav</DropdownItem>
                     <DropdownItem>Utkarsh Singh</DropdownItem>  
